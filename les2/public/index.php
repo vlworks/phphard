@@ -4,6 +4,7 @@ use app\models\Product;
 use app\models\User;
 use app\engine\Db;
 use app\models\Cart;
+use app\models\News;
 
 include "../engine/Autoload.php";
 
@@ -17,3 +18,6 @@ echo $user->getAll();
 
 $cart = new Cart(new Db());
 echo $cart->getOne(5);
+
+$news = new News(new Db());
+echo $news->getAll();
