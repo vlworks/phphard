@@ -9,4 +9,13 @@ include $_SERVER['DOCUMENT_ROOT'] . "/../config/config.php";
 include $_SERVER['DOCUMENT_ROOT'] . "/../engine/Autoload.php";
 
 spl_autoload_register([new Autoload(), 'loadClass']);
+echo "<pre>";
+
+# уже есть в базе
+//$user = new User('moderator', '12345', '');
+//$user->insert();
+
+# уже есть в базе
+//$product = new Product('imglink', 'Мяч', 'Детский резинвый мяч', 22);
+//$product->insert();
 

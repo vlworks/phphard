@@ -34,6 +34,7 @@ abstract class Model implements IModel
         $params = array_slice($params, 1, -1);
         $sql = "INSERT INTO {$this->getTableName()} SET" . $this->prepareSET();
         $this->db->execute($sql, $params);
+
        // $this->id = lastinsertId;
     }
 
