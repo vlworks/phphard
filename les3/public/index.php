@@ -16,6 +16,11 @@ echo "<pre>";
 //$user->insert();
 
 # уже есть в базе
-//$product = new Product('imglink', 'Мяч', 'Детский резинвый мяч', 22);
-//$product->insert();
-
+$product = new Product('imglink', 'Мяч', 'Детский резинвый мяч', 22);
+$product->insert();
+//$product->delete();
+$product->image = 'update img';
+$product->name = 'update name';
+$product->description = 'update description';
+$product->price = 1000000;
+$product->update();

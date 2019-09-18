@@ -4,7 +4,6 @@ namespace app\models;
 
 class Product extends Model
 {
-    public $id;
     public $image;
     public $name;
     public $description;

@@ -46,6 +46,10 @@ class Db
         return $pdoStatement;
     }
 
+    public function getLastId(){
+        return (int)$this->getConnection()->lastInsertId();
+    }
+
     public function execute($sql, $params = []) {
         $this->query($sql, $params);
         return true;

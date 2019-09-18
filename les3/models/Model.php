@@ -6,6 +6,7 @@ use app\engine\Db;
 
 abstract class Model implements IModel
 {
+    public $id;
     protected $db;
 
 
@@ -14,35 +15,39 @@ abstract class Model implements IModel
         $this->db = Db::getInstance();
     }
 
-    private function prepareSET(){
-        $set = ' ';
+    private function getParams(){
         foreach ($this as $key => $value){
             $params[$key] = $value;
         }
-        $params = array_slice($params, 1, -1);
+        $params = array_slice($params, 0, -1);
+        return $params;
+    }
 
-        foreach ($params as $key => $value){
+    private function prepareSET(){
+        $set = ' ';
+        foreach ($this->getParams() as $key => $value){
             $set .= "`" . $key . "` = :" . $key . ", ";
         }
-        $set = substr($set, 0, -2);
+        $set = substr($set, 1, -2);
         return $set;
     }
 
     public function insert() {
-        foreach ($this as $key => $value)
-            $params[$key] = $value;
-        $params = array_slice($params, 1, -1);
         $sql = "INSERT INTO {$this->getTableName()} SET" . $this->prepareSET();
-        $this->db->execute($sql, $params);
-
-       // $this->id = lastinsertId;
+        $this->db->execute($sql, $this->getParams());
+        $this->id = $this->db->getLastId();
+        echo "Добавили элемент с id = {$this->id} <br>";
     }
 
     public function delete() {
-
+        $sql = "DELETE FROM {$this->getTableName()} WHERE id = :id";
+        $this->db->execute($sql, ['id' => $this->id]);
+        echo "Удалили элемент с id = {$this->id} <br>";
     }
     public function update() {
-
+        $sql = "UPDATE {$this->getTableName()} SET" . $this->prepareSET() . " WHERE id = :id";
+        $this->db->execute($sql, $this->getParams());
+        echo "Изменили элемент с id = {$this->id} <br>";
     }
 
     public function getOne($id) {
