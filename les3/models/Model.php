@@ -32,7 +32,7 @@ abstract class Model implements IModel
         foreach ($this as $key => $value)
             $params[$key] = $value;
         $params = array_slice($params, 1, -1);
-        $sql = "INSERT INTO goods SET" . $this->prepareSET();
+        $sql = "INSERT INTO {$this->getTableName()} SET" . $this->prepareSET();
         $this->db->execute($sql, $params);
        // $this->id = lastinsertId;
     }
