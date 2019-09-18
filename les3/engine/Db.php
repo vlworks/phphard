@@ -21,7 +21,7 @@ class Db
 
     private function getConnection() {
         if (is_null($this->connection)) {
-            var_dump("Подключаюсь к БД...");
+//            var_dump("Подключаюсь к БД...");
             $this->connection =  new \PDO($this->prepareDSNstring(),
                 $this->config['login'],
                 $this->config['password']);

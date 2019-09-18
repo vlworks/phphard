@@ -5,14 +5,15 @@ namespace app\models;
 class Product extends Model
 {
     public $id;
-    public $img;
+    public $image;
     public $name;
     public $description;
     public $price;
 
-    public function __construct()
+    public function __construct($image, $name, $description, $price)
     {
-        $this->img = $img;
+        parent::__construct();
+        $this->image = $image;
         $this->name = $name;
         $this->description = $description;
         $this->price = $price;
