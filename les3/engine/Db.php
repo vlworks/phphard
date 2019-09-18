@@ -63,4 +63,10 @@ class Db
         return $this->query($sql, $params)->fetchAll();
     }
 
+    ## мысли вслух - задание со звездочкой
+
+    public function queryObj($sql, $params = []) {
+        return $this->query($sql, $params)->fetchObject();
+    }
+
 }

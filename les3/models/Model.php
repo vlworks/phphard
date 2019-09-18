@@ -61,4 +61,12 @@ abstract class Model implements IModel
         return $this->db->queryAll($sql);
     }
 
+    ## мысли вслух - задание со звездочкой
+
+    public function getOneObj($id){
+        $tableName = $this->getTableName();
+        $sql = "SELECT * FROM {$tableName} WHERE id = :id";
+        return $this->db->queryObj($sql, ['id' => $id]);
+    }
+
 }

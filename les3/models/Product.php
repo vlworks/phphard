@@ -9,7 +9,7 @@ class Product extends Model
     public $description;
     public $price;
 
-    public function __construct($image, $name, $description, $price)
+    public function __construct($image = null, $name = null, $description = null, $price = null)
     {
         parent::__construct();
         $this->image = $image;
