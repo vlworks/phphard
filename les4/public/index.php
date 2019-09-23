@@ -20,8 +20,6 @@ if (class_exists($controllerClass)) {
 }
 
 
-
-
 /**
  * @var Product $product
  */
@@ -30,7 +28,9 @@ if (class_exists($controllerClass)) {
 //$product->save();
 //$product->delete();
 
-$product = Product::getOne(3);
+echo "<pre>";
+$product = Product::showLimit(4);
+//var_dump($product);
 
 //$product->setName("Сникерс2");
 

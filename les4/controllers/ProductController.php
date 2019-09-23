@@ -12,8 +12,11 @@ class ProductController extends Controller
     }
 
     public function actionCatalog() {
-        $catalog = Product::getAll();
-        echo $this->render('catalog', ['catalog' => $catalog]);
+//        $catalog = Product::getAll();
+        $page = (int)$_GET['page'];
+        $catalog = Product::showLimit($page);
+        echo $this->render('catalog', ['catalog' => $catalog,
+                                                'page' => ++$page]);
     }
 
     public function actionCard() {

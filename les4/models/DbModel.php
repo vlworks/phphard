@@ -68,4 +68,10 @@ abstract class DbModel extends Models
         return Db::getInstance()->queryAll($sql);
     }
 
+    public static function showLimit($col){
+        $tableName = static::getTableName();
+        $sql = "SELECT * FROM {$tableName} WHERE 1 LIMIT ?";
+        return Db::getInstance()->executeLimit($sql, $col);
+    }
+
 }
