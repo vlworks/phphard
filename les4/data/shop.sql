@@ -1,10 +1,10 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июн 01 2019 г., 14:07
--- Версия сервера: 5.7.23
+-- Время создания: Сен 23 2019 г., 12:15
+-- Версия сервера: 5.7.25
 -- Версия PHP: 7.1.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -63,7 +63,9 @@ INSERT INTO `products` (`id`, `name`, `description`, `price`) VALUES
 (1, 'Пицца', 'Новое описание 2', 55),
 (2, 'Пончик', 'Сладкий, с шоколадом.', 12),
 (3, 'Шоколад', 'Белый', 12),
-(4, 'Сникерс', 'Заморский', 25);
+(4, 'Сникерс', 'Заморский', 25),
+(5, 'Мяч', 'Мяч резиновый', 14),
+(6, 'Пылесос', 'Пылесос мега3000', 45);
 
 -- --------------------------------------------------------
 
@@ -121,7 +123,7 @@ ALTER TABLE `basket`
 -- AUTO_INCREMENT для таблицы `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
