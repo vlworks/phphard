@@ -9,11 +9,18 @@ use Twig\Loader\FilesystemLoader;
 class TwigRender implements IRenderer
 {
 
+    private $loader;
+    private $twig;
+
+    public function __construct()
+    {
+        $this->loader = new FilesystemLoader('../twigtemplates');
+        $this->twig = new Environment($this->loader);
+    }
+
     public function renderTemplate($template, $params = [])
     {
-        $loader = new FilesystemLoader('../twigtemplates');
-        $twig = new Environment($loader);
         $templatePath = $template . ".tmpl";
-        echo $twig->render($templatePath, $params);
+        echo $this->twig->render($templatePath, $params);
     }
 }
