@@ -3,11 +3,14 @@
 use app\engine\Render;
 use app\models\{Basket, Product, User};
 use app\engine\Db;
+use Twig\Environment;
+use Twig\Loader\FilesystemLoader;
 
 include $_SERVER['DOCUMENT_ROOT'] . "/../config/config.php";
 include $_SERVER['DOCUMENT_ROOT'] . "/../engine/Autoload.php";
 
 spl_autoload_register([new Autoload(), 'loadClass']);
+require_once '../vendor/autoload.php'; // TWIG
 
 
 
@@ -23,7 +26,10 @@ if (class_exists($controllerClass)) {
     echo "Не правильный контроллер";
 }
 
+$loader = new FilesystemLoader('../twigtemplates');
+$twig = new Environment($loader);
 
+echo $twig->render('index.tmpl', ['name' => 'Test']);
 
 
 /**
@@ -34,7 +40,7 @@ if (class_exists($controllerClass)) {
 //$product->save();
 //$product->delete();
 
-$product = Product::getOne(3);
+//$product = Product::getOne(3);
 
 //$product->setName("Сникерс2");
 
