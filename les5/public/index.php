@@ -1,10 +1,10 @@
 <?
 
 use app\engine\Render;
+use app\engine\TwigRender;
 use app\models\{Basket, Product, User};
 use app\engine\Db;
-use Twig\Environment;
-use Twig\Loader\FilesystemLoader;
+
 
 include $_SERVER['DOCUMENT_ROOT'] . "/../config/config.php";
 include $_SERVER['DOCUMENT_ROOT'] . "/../engine/Autoload.php";
@@ -20,16 +20,13 @@ $actionName = $_GET['a'];
 $controllerClass = CONTROLLER_NAMESPACE . ucfirst($controllerName)  . "Controller";
 
 if (class_exists($controllerClass)) {
-    $controller = new $controllerClass(new Render());
+    $controller = new $controllerClass(new TwigRender());
     $controller->runAction($actionName);
 } else {
     echo "Не правильный контроллер";
 }
 
-$loader = new FilesystemLoader('../twigtemplates');
-$twig = new Environment($loader);
 
-echo $twig->render('index.tmpl', ['name' => 'Test']);
 
 
 /**
