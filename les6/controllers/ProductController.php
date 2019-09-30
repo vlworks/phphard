@@ -21,7 +21,8 @@ class ProductController extends Controller
 
 
     public function actionCard() {
-        $id = $_GET['id'];
+//        $id = $_GET['id'];
+        $id = (new Request())->getParams()['id'];
         $product = Product::getOne($id);
         echo $this->render('card', ['product' => $product]);
     }
