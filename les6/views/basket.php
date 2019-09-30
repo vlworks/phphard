@@ -1,3 +1,4 @@
+
 <h2>Корзина</h2><hr>
 <div class="basket" id="basket">
 <? foreach ($products as $item): ?>
@@ -9,6 +10,13 @@
         <button data-id="<?= $item['id_basket']?>" class="delete">Удалить</button>
     </div>
 <? endforeach; ?>
+    <b>
+<?if(!$sum):?>
+    <p>Корзина пуста</p>
+<?else:?>
+    <p id="sum">Сумма корзины: <?=$sum?></p>
+<?endif;?>
+    </b>
 </div>
 
 
@@ -34,6 +42,13 @@
                 if(answer.result){
                     let basketItem = document.getElementById('basket-' + id);
                     document.getElementById('basket').removeChild(basketItem);
+
+                    let basketSum = document.getElementById('sum');
+                    if(answer.sum){
+                        basketSum.textContent = 'Сумма корзины: ' + answer.sum;
+                    } else {
+                        basketSum.textContent = 'Корзина пуста';
+                    }
                 }
 
             })();
