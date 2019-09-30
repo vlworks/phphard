@@ -1,1 +1,4 @@
+../idea/
 .idea/
+vendor/
+les5/__test/
