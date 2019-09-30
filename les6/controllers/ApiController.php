@@ -20,4 +20,17 @@ class ApiController extends Controller
         echo json_encode($response);
         exit;
     }
+
+    public function actionDelBasket() {
+
+        (new Basket(session_id(), 'заглушка', (new Request())->getParams()['id']))->delete();
+
+        $response = [
+            'result' => 1,
+            'count' => Basket::getCountWhere('session_id', session_id())
+        ];
+        header('Content-Type: application/json');
+        echo json_encode($response);
+        exit;
+    }
 }

@@ -17,10 +17,11 @@ class Basket extends DbModel
      * @param $session_id
      * @param $product_id
      */
-    public function __construct($session_id, $product_id)
+    public function __construct($session_id, $product_id, $id = null)
     {
         $this->session_id = $session_id;
         $this->product_id = $product_id;
+        $this->id = $id;
     }
 
 
