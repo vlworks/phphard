@@ -38,8 +38,8 @@ catch (RequestException $e) {
     var_dump("Ошибка request");
 }
 catch (\Exception $e) {
-    var_dump($e);
-    var_dump($e->getTrace());
+    echo $e->getMessage();
+//    var_dump($e->getTrace());
 }
 
 
