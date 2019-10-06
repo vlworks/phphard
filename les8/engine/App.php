@@ -14,7 +14,8 @@ use app\traits\Tsingletone;
  * @property Request $request
  * @property BasketRepository $basketRepository
  * @property UserRepository $userRepository
- * @property ProductRepository $productRepository
+ * @property ProductRepository $productRepository*
+ * @property OrderRepository $orderRepository
  * @property Db $db
  */
 class App

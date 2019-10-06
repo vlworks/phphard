@@ -13,11 +13,11 @@ require_once '../vendor/autoload.php';
 $config = include __DIR__ . "/../config/config.php";
 
 
-try {
+//try {
     App::call()->run($config);
-} catch (Exception $e) {
-    var_dump($e);
-}
+//} catch (Exception $e) {
+//    var_dump($e);
+//}
 
 
 
