@@ -13,7 +13,9 @@ class OrderController extends Controller
 {
     public function actionIndex() {
         echo $this->render('manager' ,[
-            'orders' => App::call()->orderRepository->getAll()
+            'orders' => App::call()->orderRepository->getAll(),
+            'user' => App::call()->userRepository->getName(),
+            'details' => App::call()->basketRepository->getBasket(App::call()->request->getParams()['order_session'])
         ]);
     }
     public function actionCreate() {

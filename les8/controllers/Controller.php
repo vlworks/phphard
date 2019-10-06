@@ -45,7 +45,8 @@ abstract class Controller
                 'auth' => App::call()->userRepository->isAuth(),
                 'username' => App::call()->userRepository->getName(),
                 'menu' => $this->renderTemplate('menu', [
-                    'count' => App::call()->basketRepository->getCountWhere('session_id', session_id())
+                    'count' => App::call()->basketRepository->getCountWhere('session_id', session_id()),
+                    'user' => App::call()->userRepository->getName()
 
                 ])
             ]);

@@ -7,7 +7,6 @@
 
 <script>
     let buttons = document.querySelectorAll('.buy');
-
     buttons.forEach((elem) => {
         elem.addEventListener('click', () => {
             let id = elem.getAttribute('data-id');
@@ -26,5 +25,5 @@
 
             })();
         })
-    })
+    });
 </script>

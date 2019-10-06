@@ -6,7 +6,9 @@ namespace app\controllers;
 use app\engine\App;
 use app\engine\Request;
 use app\models\entities\Basket;
+use app\models\entities\Order;
 use app\models\repositories\BasketRepository;
+use app\models\repositories\OrderRepository;
 
 class ApiController extends Controller
 {
@@ -54,6 +56,17 @@ class ApiController extends Controller
         header('Content-Type: application/json');
         echo json_encode($response);
 
+        exit;
+    }
+
+    public function actionChangeOrder(){
+        $id = App::call()->request->getParams()['id'];
+        App::call()->orderRepository->changeStatus($id, 1); // можно передавать различные состояния через второй параметр
+        $response = [
+            'result' => 1,
+        ];
+        header('Content-Type: application/json');
+        echo json_encode($response);
         exit;
     }
 }
