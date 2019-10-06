@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Сен 27 2019 г., 21:16
--- Версия сервера: 8.0.15
+-- Время создания: Окт 06 2019 г., 21:32
+-- Версия сервера: 5.6.43
 -- Версия PHP: 7.1.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -39,16 +39,38 @@ CREATE TABLE `basket` (
 --
 
 INSERT INTO `basket` (`id`, `session_id`, `product_id`) VALUES
-(1, '', 2),
-(2, '', 3),
-(3, 'dttavkp4q9o5igel323h36legmv08bl0', 1),
-(4, 'dttavkp4q9o5igel323h36legmv08bl0', 2),
-(5, 'dttavkp4q9o5igel323h36legmv08bl0', 4),
-(6, 'dttavkp4q9o5igel323h36legmv08bl0', 3),
-(7, 'dttavkp4q9o5igel323h36legmv08bl0', 1),
-(8, 'dttavkp4q9o5igel323h36legmv08bl0', 2),
-(9, 'dttavkp4q9o5igel323h36legmv08bl0', 1),
-(10, 'dttavkp4q9o5igel323h36legmv08bl0', 2);
+(17, 's2g53afph5m1djdnbvnbp1ii3b4gana0', 2),
+(18, 's2g53afph5m1djdnbvnbp1ii3b4gana0', 2),
+(19, 's2g53afph5m1djdnbvnbp1ii3b4gana0', 1),
+(22, 'eqprovj2skftlkb5peh068ldjgmalfh3', 4),
+(26, 'lkuikkminm6351jkl9n7dk143kh2rr9k', 1),
+(27, 'lkuikkminm6351jkl9n7dk143kh2rr9k', 4),
+(28, 'lkuikkminm6351jkl9n7dk143kh2rr9k', 3),
+(29, 'lkuikkminm6351jkl9n7dk143kh2rr9k', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL,
+  `name` text NOT NULL,
+  `phone` int(11) NOT NULL,
+  `adres` text NOT NULL,
+  `session_id` text NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `orders`
+--
+
+INSERT INTO `orders` (`id`, `name`, `phone`, `adres`, `session_id`, `status`) VALUES
+(4, 'Vlad', 123, 'king', 's2g53afph5m1djdnbvnbp1ii3b4gana0', 0),
+(5, 'name2', 911, 'vologda', 'eqprovj2skftlkb5peh068ldjgmalfh3', 0),
+(6, 'test', 12345, 'mars', 'lkuikkminm6351jkl9n7dk143kh2rr9k', 1);
 
 -- --------------------------------------------------------
 
@@ -104,6 +126,12 @@ ALTER TABLE `basket`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `products`
 --
 ALTER TABLE `products`
@@ -123,7 +151,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `basket`
 --
 ALTER TABLE `basket`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+
+--
+-- AUTO_INCREMENT для таблицы `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT для таблицы `products`
