@@ -9,6 +9,14 @@
 </div>
 <? endforeach; ?>
 
+<h2>Оформите заказ</h2>
+<form action="/order/create" method="post">
+    <input placeholder="Ваше имя" type="text" name="name">
+    <input placeholder="Телефон" type="text" name="phone">
+    <input placeholder="Адрес доставки" type="text" name="adres">
+    <input type="submit">
+</form>
+
 <script>
     let buttons = document.querySelectorAll('.delete');
 
